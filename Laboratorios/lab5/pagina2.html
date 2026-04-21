@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="utf-8">
+    <title>HTML</title>
+  </head>
+  <body>
+    <!-- Content -->
+    <!-- Ejemplo incorrecto -->
+    <!--
+    <p id="para">Soy un párrafo.</p>
+    <p id="para">Soy otro párrafo.</p>
+    -->
+     
+    <p id="para1">Soy un párrafo.</p>
+    <p id="para2">Soy otro párrafo.</p>
+
+    <h2>Películas</h2>
+    <ul class="list">
+      <li>Titanic</li>
+      <li>Jurassic Park</li>
+      <li>Star Wars</li>
+    </ul>
+
+<div id="contenedor"></div>
+
+<!-- INVESTIGACIÓN: NAVEGACIÓN -->
+  <!-- ===================== -->
+  <h2>Ejemplos de navegación</h2>
+
+  <!-- Enlace misma pestaña -->
+  <a href="https://www.google.com">Ir a Google (misma pestaña)</a>
+  <br>
+
+  <!-- Enlace nueva pestaña -->
+  <a href="https://www.google.com" target="_blank">Ir a Google (nueva pestaña)</a>
+  <br>
+
+  <!-- Ruta relativa -->
+  <a href="pagina2.html">Ir a página interna</a>
+  <br><br>
+
+  <!-- Form -->
+  <form action="pagina2.html">
+    <button type="submit">Ir con form</button>
+  </form>
+
+  <br>
+
+  <!-- Botón con JS -->
+  <button onclick="irPagina()">Ir con JavaScript</button>
+  
+
+  <script>
+    let log = console.log;
+    const paragraph1 = document.getElementById("para1");
+    log(paragraph1);
+    log(paragraph1.textContent);
+
+    //const titulo = document.querySelector("h1");
+    //log(titulo);
+
+    const lista = document.querySelector(".list");
+    log(lista);
+
+    const items = document.querySelectorAll("ul > li");
+    items.forEach((item, index) => {
+      log("Elemento " + index + ": " + item.textContent); 
+    });
+
+    const contenedor = document.getElementById("contenedor");
+    let nuevaLista = document.createElement("ul");
+
+    let li1 = document.createElement("li");
+    li1.textContent="HTML";
+
+    let li2 = document.createElement("li");
+    li2.textContent="CSS";
+
+    let li3 = document.createElement("li");
+    li3.textContent="JavaScript";
+
+    nuevaLista.appendChild(li1);
+    nuevaLista.appendChild(li2);
+    nuevaLista.appendChild(li3);
+
+    contenedor.appendChild(nuevaLista);
+
+    let newH3 = document.createElement("h3");
+    newH3.textContent = "Hola soy un texto en color negro";
+    contenedor.appendChild(newH3);
+
+    const h3 = document.querySelector("h3");
+    h3.style.color = "blue";
+    h3.textContent = "Ohh no me cambiaron a azul.";
+    
+    let boton = document.createElement("button");
+    boton.textContent = "Mostrar Alerta";
+    boton.setAttribute("id", "btn");
+    
+    contenedor.appendChild(boton);
+
+    const btn = document.getElementById("btn");
+
+    btn.addEventListener("click", function(){
+      Swal.fire({
+        title: 'Mensaje',
+        text: 'Haz hecho clic en el botón',
+        confirmButtonText: 'OK'
+      });
+    });
+
+    let botonColor = document.createElement("button");
+    botonColor.textContent = "Cambiar color fondo";
+    contenedor.appendChild(botonColor);
+
+    botonColor.addEventListener("click", () => {
+      if (document.body.style.backgroundColor === "lightgray") {
+    document.body.style.backgroundColor = "white";
+  } else {
+    document.body.style.backgroundColor = "lightgray";
+  }
+});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+# Dependencias
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Variables de entorno (pueden contener contraseñas o claves)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Datos de ejecución
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Directorios de compilación y salida
+dist/
+build/
+
+# Reportes de cobertura de pruebas
+coverage/
+.nyc_output/
+
+# Cache de herramientas
+.npm
+.eslintcache
+*.tsbuildinfo
+
+# Salida de npm pack
+*.tgz

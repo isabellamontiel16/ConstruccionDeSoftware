@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include("css.ejs") %>
+</head>
+<body>
+
+<h1>Formulario</h1>
+
+<form action="/add" method="POST">
+    <input type="text" name="nombre" required>
+    <button type="submit">Guardar</button>
+</form>
+
+<%- include("footer.ejs") %>
+<%- include("scripts.ejs") %>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+/* RESET */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* GLOBAL */
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    background: #0f0f1a;
+    color: white;
+}
+
+/* TIPOGRAFÍA */
+h1{
+    font-size: 2.5rem;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+h3{
+    font-size: 1.3rem;
+}
+
+p{
+    font-size: 1rem;
+}
+
+/* NAVBAR */
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #111;
+}
+
+#logo{
+    color: violet;
+    font-size: 1.5rem;
+}
+
+nav ul{
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: violet;
+}
+
+/* HERO */
+.hero{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-image: url("https://images.unsplash.com/photo-1605902711622-cfb43c44367f");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content{
+    background: rgba(0,0,0,0.6);
+    padding: 2rem;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* BOTÓN */
+.btn{
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background: violet;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.btn:hover{
+    background: #d070ff;
+}
+
+/* FEATURES */
+.features{
+    padding: 2rem;
+    text-align: center;
+}
+
+/* CARDS */
+.cards{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap; /* IMPORTANTE */
+}
+
+.card{
+    background: #1a1a2e;
+    padding: 1rem;
+    margin: 0.5rem;
+    border: 2px solid violet;
+    border-radius: 10px;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+.card img{
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #111;
+}
+
+/* REFLEXION */
+#reflexion{
+    padding: 2rem;
+    background: #141428;
+}
+
+/* RESPONSIVE (Mobile First) */
+@media(min-width: 768px){
+    .cards{
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+@media(min-width: 1024px){
+    .cards{
+        gap: 2rem;
+    }
+}

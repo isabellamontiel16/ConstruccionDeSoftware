@@ -1,0 +1,51 @@
+1.¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?
+Separar el SQL en la capa del modelo permite mantener una arquitectura
+limpia (MVC), donde cada componente tiene una responsabilidad
+específica. Esto facilita el mantenimiento, la reutilización del código
+y la escalabilidad del sistema. Además, permite modificar consultas o
+incluso cambiar la base de datos sin afectar otras partes de la
+aplicación.
+
+2.¿Qué es SQL injection y cómo se puede prevenir?
+SQL Injection es un tipo de ataque en el que un usuario inserta código
+SQL malicioso en campos de entrada para manipular la base de datos. Esto
+puede permitir acceso no autorizado, modificación o eliminación de
+datos.
+
+Se puede prevenir utilizando consultas parametrizadas, evitando la
+concatenación de strings en queries SQL, validando entradas del usuario
+y utilizando herramientas seguras como ORMs.
+
+3.¿Por qué en la práctica las credenciales de Supabase viven en un archivo .env y no directamente en database.js?
+Las credenciales se guardan en un archivo .env porque este archivo no se
+sube al repositorio, lo que protege información sensible.
+
+Si se escribieran directamente en el código y se hiciera commit: -
+Cualquier persona con acceso al repositorio podría ver las
+credenciales. - Se podrían realizar accesos no autorizados a la base de
+datos. - Se tendría que regenerar las credenciales, afectando el
+funcionamiento de la aplicación. - En repositorios públicos, bots pueden
+explotar estas credenciales automáticamente.
+
+4.¿Qué problema resuelve usar un pool de conexiones en lugar de abrir y cerrar una conexión nueva en cada request?
+Un pool de conexiones permite reutilizar conexiones existentes en lugar
+de crear una nueva por cada petición. Esto reduce el tiempo de
+respuesta, mejora el rendimiento y evita sobrecargar la base de datos
+con demasiadas conexiones simultáneas.
+
+5.  Ejemplo de query inseguro y seguro
+Inseguro: const sql = “SELECT * FROM users WHERE email = ’” + email +
+“’”; pool.query(sql);
+
+Si el usuario introduce:  OR 1=1 –
+
+El query se convierte en: SELECT * FROM users WHERE email =  OR 1=1 –
+
+Esto devuelve todos los registros.
+
+Seguro: const sql = “SELECT * FROM users WHERE email = $1”;
+pool.query(sql, [email]);
+
+Explicación: El uso de parámetros evita que el input del usuario se
+interprete como parte del código SQL. La base de datos trata el valor
+como un dato literal, bloqueando así intentos de inyección como ’ OR 1=1

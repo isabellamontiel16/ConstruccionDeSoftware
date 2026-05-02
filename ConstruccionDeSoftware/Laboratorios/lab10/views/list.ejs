@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include("css.ejs") %>
+</head>
+<body>
+
+<h1>Lista</h1>
+
+<% if (datos.length > 0) { %>
+    <ul>
+        <% datos.forEach(d => { %>
+            <li><%= d %></li>
+        <% }) %>
+    </ul>
+<% } else { %>
+    <p>No hay datos</p>
+<% } %>
+
+<%- include("footer.ejs") %>
+<%- include("scripts.ejs") %>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<p>Before the script...</p>
+<p>...After the script.</p>
+
+<% 
+    let variable = "Hola soy una variable";
+    for(let i = 0; i < frases.length; i++) {
+%>
+
+    <%- include("footer.ejs") %>
+    <p><%= variable + " " + frases[i] %></p>
+
+<% } %>

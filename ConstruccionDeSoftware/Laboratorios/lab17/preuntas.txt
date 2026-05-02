@@ -1,0 +1,39 @@
+1. ¿Que elementos hay que configurar para un entorno de produccion?
+Para un entorno de producción se deben configurar varios elementos que aseguren
+que la aplicación funcione de manera estable y segura para usuarios reales.
+Esto incluye el servidor o contenedor donde se ejecutará la app, un gestor de procesos
+como PM2 para mantenerla siempre activa, y un proxy inverso como Nginx para manejar las
+peticiones desde el puerto 80 o 443. También es fundamental configurar correctamente la base de datos,
+habilitar HTTPS, manejar logs y monitoreo, y evitar exponer información sensible. En general, 
+todo debe estar optimizado para rendimiento, seguridad y disponibilidad continua.
+
+2. ¿Que variables de entorno tienes que crear en tu proyecto?
+Las variables de entorno que se deben crear son aquellas que contienen 
+configuraciones sensibles o que cambian según el entorno. Entre las más
+comunes están la conexión a la base de datos (DATABASE_URL o DB_HOST, DB_USER, DB_PASSWORD),
+el puerto de ejecución (PORT), una clave secreta para sesiones o autenticación (SECRET_KEY),
+y el modo de ejecución (NODE_ENV=production). También pueden incluirse claves de APIs externas 
+o servicios adicionales que use la aplicación.
+
+3. Investiga los tipos de DNS y explícalos
+Existen varios tipos de DNS que cumplen distintas funciones. El registro A vincula un dominio 
+con una dirección IP IPv4, mientras que el AAAA lo hace con IPv6. El CNAME permite que un dominio
+sea un alias de otro dominio. El MX se utiliza para el manejo de correos electrónicos, indicando a
+qué servidor deben enviarse. El TXT almacena información de texto, comúnmente usada para verificaciones
+o seguridad. El NS define qué servidores DNS tienen autoridad sobre el dominio, y el SOA contiene información 
+administrativa general del dominio.
+
+4. ¿Qué significa para un dominio cambiar el registro NS a diferencia de los demás?
+Cambiar el registro NS de un dominio significa transferir el control completo del DNS a otro proveedor. 
+A diferencia de otros registros que solo modifican aspectos específicos (como apuntar a una IP), el NS define
+quién administra todos los registros del dominio. Por eso, al cambiarlo, se deben volver a configurar todos los 
+registros en el nuevo proveedor para que el dominio funcione correctamente.
+
+5. Investiga los pros y contras de los certificados SSL gratuitos contra los de pago ¿Qué ventajas y desventajas otorgan? 
+¿Para cuando se recomendaría usar uno de pago ho en día?
+Los certificados SSL gratuitos, como Let’s Encrypt, ofrecen cifrado seguro sin costo y son suficientes para la mayoría de aplicaciones. 
+Sin embargo, requieren renovaciones frecuentes y no incluyen soporte técnico ni validación avanzada. Los certificados de pago ofrecen ventajas
+como validación de organización o extendida, mayor confianza para los usuarios, soporte técnico y, en algunos casos, garantías. Hoy en día,
+los gratuitos son adecuados para proyectos personales o pequeños, mientras que los de pago se recomiendan en aplicaciones empresariales o de comercio
+electrónico donde la confianza del usuario es clave.
+

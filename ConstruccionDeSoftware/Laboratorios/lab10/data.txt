@@ -1,0 +1,6 @@
+¿Qué otros templating engines existen para node?
+Además de EJS, existen varios templating engines para Node.js como Pug,
+que utiliza una sintaxis más compacta sin HTML tradicional; Handlebars y Mustache,
+que emplean llaves dobles para insertar datos y son más estructurados; Nunjucks,
+que es más potente y flexible con una sintaxis similar a Python; y Hogan.js, basado en Mustache,
+todos ellos utilizados para generar HTML dinámico en aplicaciones web.

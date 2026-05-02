@@ -1,0 +1,14 @@
+1. ¿Qué beneficios encuentras en el estilo MVC?
+Divide la aplicación en Modelo, Vista y Controlador, lo que permite que cada parte tenga una función específica.
+Facilita entender la estructura del proyecto, especialmente cuando crece.
+Se pueden hacer cambios en una parte (por ejemplo, la vista) sin afectar otras.
+El modelo puede ser utilizado por diferentes controladores o vistas sin duplicar lógica.
+Permite que el proyecto crezca de manera ordenada agregando nuevas funcionalidades.
+Diferentes desarrolladores pueden trabajar en distintas partes (frontend, lógica, datos) sin interferir.
+
+2. ¿Encuentras alguna desventaja en el estilo arquitectónico MVC?
+Sí, también presenta algunas desventajas:
+Para proyectos pequeños puede ser innecesario y más difícil de entender al inicio.
+Requiere crear varias carpetas y archivos, lo que puede parecer excesivo.
+Es necesario entender bien cómo interactúan modelo, vista y controlador.
+Configurar la arquitectura toma más tiempo comparado con soluciones simples.

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cuestionario CSS Avanzado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background-color: #f4f6f8;
+      color: #1c1e21;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .question {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .answer {
+      color: #444;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Cuestionario — CSS Avanzado y Frameworks</h1>
+
+  <div class="card">
+    <p class="question">1. ¿Qué ventajas ofrecen las variables CSS sobre los valores hardcodeados?</p>
+    <p class="answer">Permiten reutilizar valores, facilitan el mantenimiento, aseguran consistencia y permiten crear temas dinámicos como modo oscuro.</p>
+  </div>
+
+  <div class="card">
+    <p class="question">2. ¿En qué casos conviene declarar variables fuera de :root?</p>
+    <p class="answer">Cuando se quieren aplicar solo a un componente o contexto específico, como un tema oscuro o una sección particular.</p>
+  </div>
+
+  <div class="card">
+    <p class="question">3. ¿Cómo se usan las variables CSS para modo oscuro?</p>
+    <p class="answer">Se definen valores en :root y se sobrescriben en una clase como body.dark para cambiar todo el tema dinámicamente.</p>
+  </div>
+
+  <div class="card">
+    <p class="question">4. ¿Qué sucede si usas una variable no declarada?</p>
+    <p class="answer">La propiedad no se aplica, o se puede usar un valor por defecto con var(--variable, fallback).</p>
+  </div>
+
+  <div class="card">
+    <p class="question">5. ¿Diferencia entre mobile-first y desktop-first?</p>
+    <p class="answer">Mobile-first diseña primero para móvil y escala con min-width. Desktop-first comienza en escritorio y usa max-width.</p>
+  </div>
+
+  <div class="card">
+    <p class="question">6. ¿Breakpoints más comunes y por qué?</p>
+    <p class="answer">480px, 768px, 1024px y 1280px porque corresponden a tamaños reales de dispositivos.</p>
+  </div>
+
+  <div class="card">
+    <p class="question">7. ¿Cómo afecta el viewport meta tag?</p>
+    <p class="answer">Permite que la página se adapte correctamente al tamaño del dispositivo y evita escalados incorrectos en móviles.</p>
+  </div>
+
+  <div class="card">
+    <p class="question">8. Técnicas además de media queries</p>
+    <p class="answer">Flexbox, Grid, unidades relativas (rem, %, vw), clamp(), max-width e imágenes responsivas.</p>
+  </div>
+
+  <div class="card">
+    <p class="question">9. ¿Cómo identificar qué regla CSS se aplica?</p>
+    <p class="answer">En DevTools, la regla activa no está tachada. Gana la más específica o la última declarada.</p>
+  </div>
+
+  <div class="card">
+    <p class="question">10. ¿Qué muestra la pestaña Computed?</p>
+    <p class="answer">El valor final de cada propiedad después de aplicar herencia, conflictos y variables.</p>
+  </div>
+
+  <div class="card">
+    <p class="question">11. ¿Cómo simular dispositivos?</p>
+    <p class="answer">Usando DevTools con Ctrl + Shift + M para probar diferentes resoluciones y dispositivos.</p>
+  </div>
+
+  <div class="card">
+    <p class="question">12. ¿Cuándo usar Bootstrap vs Tailwind?</p>
+    <p class="answer">Bootstrap para prototipos rápidos. Tailwind para diseños personalizados.</p>
+  </div>
+
+  <div class="card">
+    <p class="question">13. ¿Qué significa utility-first?</p>
+    <p class="answer">Que las clases hacen una sola cosa, como padding, color o tamaño.</p>
+  </div>
+
+  <div class="card">
+    <p class="question">14. ¿Cómo afecta al tamaño del bundle?</p>
+    <p class="answer">Bootstrap puede ser pesado. Tailwind puede optimizarse pero también crecer si no se configura.</p>
+  </div>
+
+  <div class="card">
+    <p class="question">15. ¿Se pueden combinar frameworks?</p>
+    <p class="answer">Sí, pero no es recomendable por conflictos, duplicación y dificultad de mantenimiento.</p>
+  </div>
+
+</body>
+</html>

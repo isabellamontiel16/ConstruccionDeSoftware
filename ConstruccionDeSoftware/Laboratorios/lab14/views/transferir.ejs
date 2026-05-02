@@ -1,0 +1,7 @@
+<h1>Transferir dinero</h1>
+
+<form action="/transferir" method="POST">
+    <input type="hidden" name="x-csrf-token" value="<%= csrfToken %>">
+    <input name="monto" placeholder="Monto">
+    <button>Transferir</button>
+</form>

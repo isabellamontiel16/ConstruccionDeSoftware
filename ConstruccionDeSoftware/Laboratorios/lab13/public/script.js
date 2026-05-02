@@ -1,4 +1,3 @@
-// ===================== CLASE PRODUCTO =====================
 class Product {
   constructor(id, name, price) {
     this.id = id;
@@ -10,14 +9,10 @@ class Product {
 const log = console.log;
 
 window.addEventListener('load', () => {
-  log("Page loaded");
-
   const myForm = document.getElementById('myForm');
   const submitButton = document.getElementById('submitButton');
   const updateProductsButton = document.getElementById('updateProducts');
   const wrapper = document.getElementById('wrapper');
-
-  let gridTable;
 
   function generateProduct() {
     const id = myForm.elements['id'].value;
@@ -47,27 +42,14 @@ window.addEventListener('load', () => {
 
     if (response.ok) {
       const data = await response.json();
-      log("Added:", data);
+      log(data);
     } else {
-      alert("Error " + response.status);
-    }
-  }
-
-  async function loadProducts() {
-    const response = await fetch('/products');
-
-    if (response.ok) {
-      const json = await response.json();
-      wrapper.innerHTML = JSON.stringify(json.products);
-    } else {
-      alert("HTTP Error: " + response.status);
+      alert("Error: " + response.status);
     }
   }
 
   function renderTable() {
-    if (gridTable) gridTable.destroy();
-
-    gridTable = new gridjs.Grid({
+    new gridjs.Grid({
       columns: ["Id", "Name", "Price"],
       search: true,
       sort: true,
@@ -79,14 +61,11 @@ window.addEventListener('load', () => {
     }).render(wrapper);
   }
 
-  submitButton.addEventListener('click', (event) => {
-    event.preventDefault();
-
+  submitButton.addEventListener('click', () => {
     const result = generateProduct();
 
     if (result.product) {
       addProduct(result.product);
-      loadProducts();
       renderTable();
     } else {
       alert(result.msg);
@@ -94,15 +73,8 @@ window.addEventListener('load', () => {
   });
 
   updateProductsButton.addEventListener('click', () => {
-    loadProducts();
     renderTable();
   });
 
-  // setInterval(() => {
-  //   loadProducts();
-  //   renderTable();
-  // }, 5000);
-
-  
   renderTable();
 });

@@ -51,12 +51,26 @@ exports.get_form_editar = async (req, res) => {
 
 exports.post_editar = async (req, res) => {
     try {
+        const nota = await model.Nota.obtenerPorId(req.params.id);
+        if (!nota) {
+            return res.status(404).send('Nota no encontrada');
+        }
+
+        const esAutor = nota.autor === req.session.username;
+        const esAdmin = (req.session.permisos || []).includes('eliminar_nota');
+
+        if (!esAutor && !esAdmin) {
+            return res.status(403).send('No puedes editar notas de otros usuarios');
+        }
+
         await model.Nota.actualizar(
             req.params.id,
             req.body.titulo,
             req.body.contenido
         );
+
         res.redirect('/notas');
+
     } catch (e) {
         console.error(e);
         res.status(500).send('Error al editar la nota');

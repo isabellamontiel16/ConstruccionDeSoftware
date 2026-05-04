@@ -1,6 +1,5 @@
 const model = require('../models/game.model');
 
-// listado
 exports.index = async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1;

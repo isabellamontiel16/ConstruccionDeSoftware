@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva nota</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 480px; margin: 2rem auto; }
+        label { display: block; margin-top: 0.8rem; }
+        input, textarea { width: 100%; padding: 0.5rem; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+    <h1>Nueva nota</h1>
+    <form action="/notas/crear" method="POST">
+        <label for="titulo">Título</label>
+        <input id="titulo" name="titulo" type="text" required>
+
+        <label for="contenido">Contenido</label>
+        <textarea id="contenido" name="contenido" rows="6" required></textarea>
+
+        <button type="submit">Guardar</button>
+        <a href="/notas">Cancelar</a>
+    </form>
+</body>
+</html>

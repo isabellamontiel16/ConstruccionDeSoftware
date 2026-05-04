@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis notas</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; }
+        article { border: 1px solid #ddd; padding: 1rem; margin: 1rem 0; border-radius: 6px; }
+        button { cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Notas (<%= username %>)</h1>
+
+    <% if (permisos.includes('crear_nota')) { %>
+        <p><a href="/notas/crear">+ Nueva nota</a></p>
+    <% } %>
+
+    <% if (notas.length === 0) { %>
+        <p>No hay notas todavía.</p>
+    <% } %>
+
+    <% for (const nota of notas) { %>
+        <article>
+            <h2><%= nota.titulo %></h2>
+            <p><%= nota.contenido %></p>
+            <small>por <strong><%= nota.autor %></strong> — <%= nota.creada_en %></small>
+
+            <div style="margin-top: 0.8rem;">
+                <% if (permisos.includes('editar_nota')) { %>
+                    <a href="/notas/<%= nota.id %>/editar">Editar</a>
+                <% } %>
+
+                <% if (permisos.includes('eliminar_nota')) { %>
+                    <form action="/notas/<%= nota.id %>/eliminar" method="POST" style="display:inline">
+                        <button type="submit">Eliminar</button>
+                    </form>
+                <% } %>
+            </div>
+        </article>
+    <% } %>
+</body>
+</html>

@@ -17,14 +17,8 @@ exports.do_login = async (req, res) => {
             return res.redirect('/usuarios/login');
         }
 
-        // ──── NUEVO: cargar permisos del usuario ────
-        const permisos = await model.User.getPermisos(usuario.username);
-
         req.session.username   = usuario.username;
         req.session.isLoggedIn = true;
-        req.session.permisos   = permisos; // array de strings
-        console.log('Permisos del usuario:', permisos);
-
         res.redirect('/usuarios/logged');
 
     } catch (e) {
@@ -38,6 +32,7 @@ exports.get_logged = async (req, res) => {
     if (!usuario) return res.redirect('/usuarios/login');
     res.render('usuarios/logged', { user: usuario });
 };
+
 
 exports.get_registro = (req, res) => {
     res.render('usuarios/registro', { registro: true });
@@ -54,3 +49,4 @@ exports.post_registro = async (req, res) => {
         res.status(500).send('Error registrando usuario');
     }
 };
+
